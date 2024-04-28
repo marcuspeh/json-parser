@@ -1,32 +1,34 @@
-from main import convertCurrentType
-from unittest import TestCase, main
+from parser import Parser
+from unittest import TestCase
 
-class TestConvertCurrentType(TestCase):
+class Test_Parser_ConvertCurrentType(TestCase):
 
     def test_boolean_true(self):
-        result = convertCurrentType("true")
+        parser = Parser()
+        result = parser.convertCurrentType("true")
         expectedResult = True
         self.assertEqual(result, expectedResult)
 
     def test_boolean_false(self):
-        result = convertCurrentType("FALSE")
+        parser = Parser()
+        result = parser.convertCurrentType("FALSE")
         expectedResult = False
         self.assertEqual(result, expectedResult)
 
     def test_int(self):
-        result = convertCurrentType("24642")
+        parser = Parser()
+        result = parser.convertCurrentType("24642")
         expectedResult = 24642
         self.assertEqual(result, expectedResult)
     
     def test_float(self):
-        result = convertCurrentType("463.364336")
+        parser = Parser()
+        result = parser.convertCurrentType("463.364336")
         expectedResult = 463.364336
         self.assertEqual(result, expectedResult)
 
     def test_string(self):
-        result = convertCurrentType("vdg35v@.{2}s")
+        parser = Parser()
+        result = parser.convertCurrentType("vdg35v@.{2}s")
         expectedResult = "vdg35v@.{2}s"
         self.assertEqual(result, expectedResult)
-
-if __name__ == '__main__':
-    main()
